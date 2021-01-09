@@ -16,7 +16,13 @@ const smudgePhotos = [
   "http://www.mrsbarnes123.com/family/wp-content/uploads/2020/05/IMG_0802.jpg",
   "http://www.mrsbarnes123.com/family/wp-content/uploads/2020/05/IMG_0948.jpg",
   "http://www.mrsbarnes123.com/family/wp-content/uploads/2020/05/IMG_2245.jpg",
+  "🥚",
+  "🥚",
+  "🥚",
+  "🥚",
 ];
+
+const dadRegex = /I ?a?'?m\s\w+/gim;
 
 console.clear();
 
@@ -29,6 +35,14 @@ client.on("message", (message) => {
 
   if (message.content === "ping") {
     message.channel.send("pong");
+  }
+
+  if (dadRegex.test(message.content)) {
+    if (message.author.bot) return;
+    let phraseMatch = message.content.match(dadRegex)[0],
+      phraseSplit = phraseMatch.split(" "),
+      noun = phraseSplit[phraseSplit.length - 1];
+    message.channel.send(`Hi ${noun}, I'm Dad Bot`);
   }
 
   if (message.content.toLowerCase().includes("smudge")) {
