@@ -23,7 +23,7 @@ client.on("message", (message) => {
     message.channel.send("pong");
   }
 
-  if (message.content.toLowerCase() === "smudge") {
+  if (message.content.toLowerCase().includes("smudge")) {
     let photo = Math.floor(Math.random() * smudgePhotos.length);
     message.channel.send(smudgePhotos[photo]);
   }
