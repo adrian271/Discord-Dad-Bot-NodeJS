@@ -22,7 +22,7 @@ const smudgePhotos = [
   "🥚",
 ];
 
-const dadRegex = /I ?a?'?m\s\w+/gim;
+const dadRegex = /I ?a?'?’?m\s\w+/gim;
 
 console.clear();
 
